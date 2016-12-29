@@ -1,0 +1,13 @@
+<?php
+
+class BaseModel extends \Phalcon\Mvc\Model {
+    
+    public function beforeCreate() {
+        $this->created_at = date('Y-m-d H:i:s');
+    }
+
+    public function beforeUpdate() {
+        $this->created_at = date('Y-m-d H:i:s');
+    }
+    
+}
