@@ -14,17 +14,17 @@ class ArticleLabel extends BaseModel
 
     /**
      *
-     * @var string
-     * @Column(type="string", length=250, nullable=false)
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
      */
-    public $name;
+    public $article_id;
 
     /**
      *
-     * @var string
-     * @Column(type="string", nullable=false)
+     * @var integer
+     * @Column(type="integer", length=11, nullable=false)
      */
-    public $description;
+    public $label_id;
 
     /**
      *
@@ -56,16 +56,6 @@ class ArticleLabel extends BaseModel
     }
 
     /**
-     * Returns table name mapped in the model.
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return 'article_label';
-    }
-
-    /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
@@ -85,6 +75,16 @@ class ArticleLabel extends BaseModel
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'article_label';
     }
 
 }

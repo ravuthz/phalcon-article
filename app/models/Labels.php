@@ -53,6 +53,13 @@ class Labels extends BaseModel
     public function initialize()
     {
         $this->setSchema("phalcon-article");
+        $this->hasManyToMany(
+            "id",
+            "articlelabel",
+            "article_id", "label_id",
+            "Articles",
+            "id"
+        );
     }
 
     /**

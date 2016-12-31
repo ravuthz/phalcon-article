@@ -60,6 +60,14 @@ class Articles extends BaseModel
     public function initialize()
     {
         $this->setSchema("phalcon-article");
+        $this->belongsTo("category_id", "Categories", "id");
+        $this->hasManyToMany(
+            "id",
+            "ArticleLabel",
+            "article_id", "label_id",
+            "Labels",
+            "id"
+        );
     }
 
     /**

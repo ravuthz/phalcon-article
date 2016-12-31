@@ -60,6 +60,9 @@ class Categories extends BaseModel
     public function initialize()
     {
         $this->setSchema("phalcon-article");
+        
+        // local field, reference model, reference field
+        $this->hasMany("id", "Articles", "category_id");
     }
 
     /**
@@ -93,5 +96,5 @@ class Categories extends BaseModel
     {
         return parent::findFirst($parameters);
     }
-
+    
 }
