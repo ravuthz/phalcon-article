@@ -1,5 +1,9 @@
 <?php
 
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Uniqueness;
+use Phalcon\Validation\Validator\PresenceOf;
+
 class Categories extends BaseModel
 {
 
@@ -93,5 +97,42 @@ class Categories extends BaseModel
     {
         return parent::findFirst($parameters);
     }
+    
+    public function validation()
+    {
+        $validator = new Validation();
+        
+        $validator->add("name", 
+            new PresenceOf([
+                "message" => "The category name is required",
+            ])
+        );
+
+        $validator->add("name", 
+            new Uniqueness([
+                "message" => "The category name must be unique",
+            ])
+        );
+        
+        return $this->validate($validator);
+    }
+    
+    /**
+     * This event is triggered every time that a "create" or "update" action fails.
+     */
+    // public function notSaved()
+    // {
+    //     // Obtain the flash service from the DI container
+    //     $flash = $this->getDI()->getFlash();
+
+    //     $messages = $this->getMessages();
+
+    //     // Show validation messages
+    //     foreach ($messages as $message) {
+    //         $flash->error($message);
+    //     }
+    // }
+    
+    // onValidationFails
 
 }
