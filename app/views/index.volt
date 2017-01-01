@@ -8,8 +8,14 @@
         <title>Phalcon PHP Framework</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
+    <style type="text/css">
+        body {
+            padding-top: 20px;
+        }
+    </style>
     <body>
         <div class="container">
+            {{ flashSession.output() }}
             {{ content() }}
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

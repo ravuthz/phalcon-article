@@ -1,5 +1,9 @@
 <?php
 
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Uniqueness;
+use Phalcon\Validation\Validator\PresenceOf;
+
 class Categories extends BaseModel
 {
 
@@ -96,5 +100,4 @@ class Categories extends BaseModel
     {
         return parent::findFirst($parameters);
     }
-    
 }
